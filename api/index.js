@@ -3,6 +3,7 @@ const express = require("express");
 const save = require("./firebase/setData");
 
 const app = express();
+app.use(express.json())
 
 app.get("/", (req, res) => {
   res.send("Welcome to links api");
