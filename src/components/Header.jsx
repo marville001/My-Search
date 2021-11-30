@@ -40,16 +40,16 @@ const Header = () => {
           onClick={() => setSearchOpen(true)}
           strokeWidth={3}
           size={30}
-          className="text-gray-900 dark:text-gray-100 md:hidden block cursor-pointer"
+          className="text-gray-100 md:hidden block cursor-pointer"
         />
       </div>
 
       {/* Header bottom large */}
-      <div className="justify-between mt-7 flex sm:hidden md:flex">
+      <div className="justify-between mt-7 hidden md:flex">
         <div className="flex-1">
           <input
-            type="text"
-            placeholder="search"
+            type="search"
+            placeholder="search here..."
             className="bg-white dark:bg-gray-400 border-2 px-2 py-1 border-blue-400 rounded-md min-w-full outline-none text-gray-900"
           />
         </div>
@@ -58,7 +58,7 @@ const Header = () => {
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="w-10 h-10 cursor-pointer bg-gray-400 rounded-full flex justify-center items-center hover:bg-indigo-300 hover:text-gray-800"
           >
-            {theme === "dark" ? (
+            {theme !== "dark" ? (
               <Moon
                 strokeWidth={3}
                 className="text-white bg-dark inline-block"
