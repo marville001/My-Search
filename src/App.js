@@ -3,18 +3,11 @@ import "./App.css";
 import CardsList from "./components/CardsList";
 import Header from "./components/Header";
 import Search from "./components/Search";
-import { getAllLinks } from "./utils";
 
 function App() {
   const inputRef = useRef();
   const searchRef = useRef();
-  useEffect(() => {
-    const loadLinks = async () => {
-      let links = await getAllLinks();
-      console.log({ links });
-    };
-    loadLinks();
-  }, []);
+  
   const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {

@@ -5,13 +5,16 @@ import App from "./App";
 
 import "./index.css";
 import { ThemeProvider } from "./theme.context";
+import { SearchProvider } from "./search.context";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      <SearchProvider>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </SearchProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

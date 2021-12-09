@@ -2,7 +2,7 @@ import React from "react";
 import { Search } from "react-feather";
 const Card = ({ item }) => {
   return (
-    <div className="bg-gray-100 rounded-xl dark:bg-gray-700 py-5 w-full sm:w-100 md:w-80 lg:w-60 flex-grow">
+    <div className="bg-gray-100 rounded-xl dark:bg-gray-700 py-5 sm:w-100 md:w-80 lg:w-60 flex-grow">
       <h4 className="dark:text-gray-200 text-center text-2xl font-bold">
         Card Title
       </h4>
