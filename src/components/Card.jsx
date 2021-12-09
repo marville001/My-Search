@@ -8,10 +8,11 @@ const Card = ({ item }) => {
       </h4>
       <hr className="bg-gray-300  border-gray-300 border-2 rounded-sm dark:border-gray-500 dark:bg-gray-500" />
       <div className="list max-h-64 overflow-auto pt-2">
+          <p className="px-6 text-center text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus optio, illum.</p>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4].map((item, i) => (
           <div className="group flex px-6 hover:bg-gray-300 justify-between align-center">
-            <a target="_blank" href="somewhere.com" className="group-hover:text-yellow-700">
-              <span className="text-xs">{i + 1}.</span> Somewhere {i}
+            <a target="_blank" href="somewhere.com" className="group-hover:text-yellow-700 flex items-center">
+              <span className="text-xs text-gray-500">{i + 1}.</span> Somewhere {i}
             </a>
             <a target="_blank" href="somewhere2.com">
               <span className="bg-yellow-700">
