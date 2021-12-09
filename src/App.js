@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="h-full bg-transparent dark:bg-gray-900 bg-fixed transition-all">
       <Header inputRef={inputRef} toggleOpen={setSearchOpen} />
-     <Search searchRef={searchRef} open={searchOpen} />
+      <Search searchRef={searchRef} open={searchOpen} />
       <CardsList />
     </div>
   );

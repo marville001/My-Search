@@ -14,6 +14,14 @@ const Header = ({ toggleOpen, inputRef }) => {
   const { theme, setTheme } = useContext(ThemeContext);
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchText, setSearchText] = useState("Search here");
+
+
+  const handleSearch = e=>{
+    e.preventDefault();
+    alert(searchText)
+  }
+
   return (
     <div className="max-w-7xl m-auto py-3 sm:px-4">
       {/* Header Top */}
@@ -46,15 +54,17 @@ const Header = ({ toggleOpen, inputRef }) => {
 
       {/* Header bottom large */}
       <div className="justify-between mt-7 hidden md:flex">
-        <div className="flex-1">
+        <form onSubmit={handleSearch} className="flex-1">
           <input
             type="search"
             onFocus={(e)=>toggleOpen(true)}
             ref={inputRef}
+            value={searchText}
+            onChange={e=>setSearchText(e.target.value)}
             placeholder="search here..."
             className="bg-white dark:bg-gray-400 border-2 px-2 py-1 border-blue-400 rounded-md min-w-full outline-none text-gray-900"
           />
-        </div>
+        </form>
         <div className="flex-1 flex justify-center">
           <div
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
