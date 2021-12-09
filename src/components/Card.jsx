@@ -17,7 +17,7 @@ const Card = ({ item }) => {
               <span className="bg-yellow-700">
                 <Search
                   strokeWidth={3}
-                  className="text-gray-700 group-hover:text-yellow-700  block"
+                  className="text-gray-100 dark:text-gray-700 group-hover:text-yellow-700  block"
                   size={20}
                 />
               </span>
