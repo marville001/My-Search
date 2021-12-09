@@ -15,7 +15,7 @@ const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <div className="max-w-5xl m-auto py-3 sm:px-4">
+    <div className="max-w-7xl m-auto py-3 sm:px-4">
       {/* Header Top */}
       <div className="flex items-center justify-between">
         {!menuOpen ? (

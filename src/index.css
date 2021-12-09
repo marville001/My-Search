@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    margin: 0;
-    padding: 0;
-    background: url("./images/light-pattern.png");
-    background-repeat: repeat;
+body {
+  margin: 0;
+  padding: 0;
+  background: url("./images/light-pattern.png");
+  background-repeat: repeat;
+}
+
+.list::-webkit-scrollbar {
+  width: 20px;
 }
