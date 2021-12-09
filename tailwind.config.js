@@ -13,6 +13,7 @@ module.exports = {
       colors: {
         primary: "#64e3e3",
       },
+      display: ['group-hover']
     },
     // backgroundColor: {
     //   gray: "#17191d",
