@@ -11,10 +11,10 @@ const Card = ({ item }) => {
           <p className="px-6 mb-2 text-center text-sm text-gray-400">Lorem ipsum dolor sit amet consecur adipisicing elit. Possimus optio, illum.</p>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4].map((item, i) => (
           <div className="group flex px-6 hover:bg-gray-300 justify-between items-center">
-            <a target="_blank" href="somewhere.com" className="dark:text-gray-200 group-hover:text-yellow-700 flex items-center">
+            <a target="_blank" rel="noreferrer" href="https://somewhere.com" className="dark:text-gray-200 group-hover:text-yellow-700 flex items-center">
               <span className="text-xs text-gray-500">{i + 1}.</span> Somewhere {i}
             </a>
-            <a target="_blank" href="somewhere2.com">
+            <a target="_blank" rel="noreferrer" href="somewhere2.com">
               <span className="bg-yellow-700">
                 <Search
                   strokeWidth={3}

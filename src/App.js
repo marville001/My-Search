@@ -13,7 +13,7 @@ function App() {
     loadLinks();
   }, []);
   return (
-    <div className="h-screen bg-transparent dark:bg-gray-900 transition-all">
+    <div className="h-full bg-transparent dark:bg-gray-900 bg-fixed transition-all">
       <Header />
       <CardsList />
     </div>
