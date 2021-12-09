@@ -10,7 +10,7 @@ import {
 } from "react-feather";
 import { ThemeContext } from "../theme.context";
 
-const Header = () => {
+const Header = ({ toggleOpen, inputRef }) => {
   const { theme, setTheme } = useContext(ThemeContext);
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,6 +49,8 @@ const Header = () => {
         <div className="flex-1">
           <input
             type="search"
+            onFocus={(e)=>toggleOpen(true)}
+            ref={inputRef}
             placeholder="search here..."
             className="bg-white dark:bg-gray-400 border-2 px-2 py-1 border-blue-400 rounded-md min-w-full outline-none text-gray-900"
           />
