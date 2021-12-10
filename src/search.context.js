@@ -36,8 +36,6 @@ export const SearchProvider = ({ children }) => {
     loadCategories();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
-  console.log();
 
   return (
     <SearchContext.Provider value={{ links, categories: [...new Set(categories)], loading }}>
