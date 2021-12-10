@@ -1,19 +1,15 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import {  useEffect, useRef, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import CardsList from "./components/CardsList";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import Home from "./pages/Home";
-import { SearchContext } from "./search.context";
 
 function App() {
   const inputRef = useRef();
   const searchRef = useRef();
 
   const [searchOpen, setSearchOpen] = useState(false);
-
-  const { loading } = useContext(SearchContext);
 
   useEffect(() => {
     const clickListener = (e) => {
