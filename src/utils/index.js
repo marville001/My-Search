@@ -9,4 +9,11 @@ async function getAllLinks() {
   return list;
 }
 
-export { getAllLinks };
+async function getAllCategories() {
+  const coll = collection(db, "categories");
+  const snapshot = await getDocs(coll);
+  const list = snapshot.docs.map((doc) => doc.data());
+  return list;
+}
+
+export { getAllLinks, getAllCategories };

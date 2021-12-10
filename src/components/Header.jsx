@@ -57,7 +57,10 @@ const Header = ({ toggleOpen, inputRef }) => {
         <form onSubmit={handleSearch} className="flex-1">
           <input
             type="search"
-            onFocus={(e)=>toggleOpen(true)}
+            onFocus={(e)=>{
+              toggleOpen(true);
+              if(searchText === "Search here") setSearchText("")
+            }}
             ref={inputRef}
             value={searchText}
             onChange={e=>setSearchText(e.target.value)}

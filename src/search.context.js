@@ -1,35 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { getAllLinks } from "./utils";
+import { getAllCategories, getAllLinks } from "./utils";
 
 
 
 export const SearchProvider = ({ children }) => {
   const [links, setLinks] = useState({})
   const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  const loadLinks = async () => {
+    let links = await getAllLinks();
+    let temp = {};
+
+    links.forEach(({category, name, url})=>{
+      if(temp[category]){
+        temp[category].push({name, url, category})
+      }else{
+        temp[category] = [{name, url}]
+      }
+    })
+    setLinks(temp)
+
+    setLoading(false)
+  };
+
+  const loadCategories = async () => {
+    setLoading(true)
+    let categories = await getAllCategories();  
+    setCategories(categories)
+
+    loadLinks()
+  };
 
   useEffect(() => {
-    const loadLinks = async () => {
-      let links = await getAllLinks();
-
-      let temp = {};
-
-      links.forEach(({category, name, url})=>{
-        if(temp[category]){
-          temp[category].push({name, url})
-        }else{
-          temp[category] = [{name, url}]
-        }
-      })
-      setLinks(temp)
-      setCategories(Object.keys(temp))
-    };
-    loadLinks();
+    loadCategories();
   }, []);
   
   console.log();
 
   return (
-    <SearchContext.Provider value={{ links, categories: [...new Set(categories)] }}>
+    <SearchContext.Provider value={{ links, categories: [...new Set(categories)], loading }}>
       {children}
     </SearchContext.Provider>
   );

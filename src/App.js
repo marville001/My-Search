@@ -1,32 +1,44 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import CardsList from "./components/CardsList";
 import Header from "./components/Header";
 import Search from "./components/Search";
+import Home from "./pages/Home";
+import { SearchContext } from "./search.context";
 
 function App() {
   const inputRef = useRef();
   const searchRef = useRef();
-  
+
   const [searchOpen, setSearchOpen] = useState(false);
+
+  const { loading } = useContext(SearchContext);
 
   useEffect(() => {
     const clickListener = (e) => {
-      console.log(searchRef.current.contains(e.target));
-      if (e.target !== inputRef.current && (searchRef.current && !searchRef.current.contains(e.target))) {
-        setSearchOpen(false)
+      if (
+        e.target !== inputRef.current &&
+        searchRef.current &&
+        !searchRef.current.contains(e.target)
+      ) {
+        setSearchOpen(false);
       }
     };
     document.addEventListener("click", clickListener);
     return () => document.removeEventListener("click", clickListener);
   }, []);
 
-
   return (
-    <div className="h-full bg-transparent dark:bg-gray-900 bg-fixed transition-all">
+    <div
+      style={{ minHeight: "100vh" }}
+      className="h-full bg-transparent dark:bg-gray-900 bg-fixed transition-all"
+    >
       <Header inputRef={inputRef} toggleOpen={setSearchOpen} />
       <Search searchRef={searchRef} open={searchOpen} />
-      <CardsList />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }
